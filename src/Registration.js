@@ -25,7 +25,7 @@ function Register() {
       try{
 const users = await axios.post(`${config().api}/server/users/register`,values);
 alert(users.data.message);     
-navigate("/signin")
+navigate("/")
 }
       catch(err){
         console.log(err);
@@ -60,13 +60,13 @@ navigate("/signin")
     </Box>
    </div>
 <form onSubmit={formik.handleSubmit}>
- <TextField name="role" value={formik.values.role} onChange={formik.handleChange} id="filled-basic" label="Admin/User" variant="filled"
+ <TextField helperText="Please enter your role user or admin use small letter" name="role" value={formik.values.role} onChange={formik.handleChange} id="filled-basic" label="admin/user" variant="filled"
  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
 
 <TextField name="username" value={formik.values.username} onChange={formik.handleChange} id="filled-basic" label="UserName" variant="filled"
  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
 
- <TextField name="email" value={formik.values.email} onChange={formik.handleChange} id="filled-basic" label="Email" variant="filled" type="email"
+ <TextField helperText="Please enter your valid email to receive ticket booked status mail" name="email" value={formik.values.email} onChange={formik.handleChange} id="filled-basic" label="Email" variant="filled" type="email"
  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
 
  <TextField name="password" value={formik.values.password} onChange={formik.handleChange} id="filled-basic" label="Password" variant="filled" type="password"

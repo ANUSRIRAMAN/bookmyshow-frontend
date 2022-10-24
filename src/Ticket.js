@@ -7,6 +7,11 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Logout from './Logout';
 const bull = (
   <Box
     component="span"
@@ -18,6 +23,19 @@ const bull = (
 
 export default function Ticket() {
   return (
+<>
+<Box sx={{ flexGrow: 1 }} >
+      <AppBar position="static"  style={{ background: "#334" }}>
+        <Toolbar >
+        
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            BOOKMYSHOW
+          </Typography>
+         <Logout/>
+        </Toolbar>
+      </AppBar>
+    </Box>
+    
     <Card sx={{ minWidth: 275 }} style={{width:"100px",margin:"200px"}}>
       <CardContent>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -47,5 +65,6 @@ export default function Ticket() {
       </CardContent>
      
     </Card>
+    </>
   );
 }

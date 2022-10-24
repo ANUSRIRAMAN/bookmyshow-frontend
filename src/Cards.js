@@ -7,12 +7,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-export default function MediaCard({theatre,movie,link,time}) {
+export default function MediaCard({theatre,movie,link,time,description}) {
 const navigate = useNavigate();
-    const book = (moviename,theatre,time)=>{
+    const book = (moviename,theatre,time,description)=>{
         localStorage.setItem("movie",moviename);
         localStorage.setItem("theatre",theatre);
         localStorage.setItem("time",time);
+        localStorage.setItem("description",description);
         navigate("/seat")
         
     }
@@ -34,14 +35,17 @@ const navigate = useNavigate();
         <Typography gutterBottom variant="h6" component="div">
           {theatre}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        <Typography gutterBottom variant="h7" component="div">
+          {time}
+        </Typography>
+        
+        <Typography gutterBottom variant="h7" component="div">
+        {description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button onClick={()=>{book(movie,theatre,time)}} size="small">Book</Button>
+      
+        <Button variant="contained" onClick={()=>{book(movie,theatre,time,description)}} size="small">Book</Button>
       </CardActions>
     </Card>
   );

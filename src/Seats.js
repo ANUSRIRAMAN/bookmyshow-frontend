@@ -5,6 +5,9 @@ import TextField from '@mui/material/TextField';
 import { Button, Typography } from '@mui/material';
 import { config } from './Config';
 import { useNavigate } from 'react-router-dom';
+import { color } from '@mui/system';
+import Logout from './Logout';
+
 function Seats() {
 const [seat,setseat]=useState([]);
 const [count,setcount]=useState(0);
@@ -85,14 +88,19 @@ str+=booked[i].column+booked[i].row+" "
 
   return (
   <> 
- <h1 className='text-center'>{localStorage.getItem("movie")}</h1>
-    <div className='container d-flex flex-wrap justify-content-around'   >
+  <div className='seatheading'style={{background:"#334" ,color:"white"}}>
+    <h3>BOOKMYSHOW</h3>
+ <h1  className='text-center'>{localStorage.getItem("movie")}</h1></div>
+    <div className='container d-flex flex-wrap justify-content-around' style={{background:"grey"}}  >
         
     {seat.map((x)=>{
         return(<button disabled={x.booking} onClick={()=>{bookings(x._id)}} className={x.booking ? `notseat` : `seat` }>{`${x.column}${x.row}`}</button>)
     })}
    
- </div> 
+ </div> <br/><br/>
+ <div className='screen'style={{width:"400px",height:"20px",marginLeft:"550px",border:"darkGrey solid 1px" ,background:"lightGrey",marginTop:"-30px",alignItems:"center",display:"flex", justifyContent:"center"}}>
+Screen
+</div>
  <div className='container d-flex align-items-center justify-content-center'>
  {
  booked.map((x)=>{
@@ -101,9 +109,21 @@ str+=booked[i].column+booked[i].row+" "
     }
     
     </div>
-    <h1 className='h1'>{`Total : ${booked.length*180}`}</h1>
+
+    <div className='analogue' style={{width:"30px",height:"30px",background:"darkgreen" ,borderRadius:"2px", marginLeft:"300px"}}>
+
+
+    </div> <h4 style={{marginLeft:"340px" ,marginTop:"-30px"}}>Booked/Blocked Seats</h4><br/>
+    <div className='analogue' style={{width:"30px",height:"30px",border:"darkGreen solid 1px" ,borderRadius:"2px", marginLeft:"300px"}}>
+
+
+    </div> <h4 style={{marginLeft:"340px" ,marginTop:"-30px"}}>Available Seats</h4><br/>
+    <div className='seatbutton'style={{paddingLeft:"100px" , marginLeft:"0px"}}>
+        <div className='total'style={{background:"#334",color:"white"}}>
+    <h1  className='h1'>{`Total : ${booked.length*180}`}</h1><br/>
     <Button variant='contained' onClick={()=>handlesubmit()}>Book</Button>
- </>
+</div> 
+</div></>
  
  
  

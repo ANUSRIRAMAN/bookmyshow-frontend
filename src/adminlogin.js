@@ -24,6 +24,8 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Formik, useFormik } from "formik";
 import { config } from './Config';
 import { useNavigate } from 'react-router-dom';
+import Logout from './Logout';
+import { AppBar, Toolbar,Typography } from '@mui/material';
 
 function App() {
   
@@ -37,8 +39,13 @@ const formik = useFormik({
   },
   onSubmit : async(values)=>{
     try{
-await axios.post(`${config().api}/server/movies`,values);
+await axios.post(`${config().api}/server/movies`,values, {
+  headers: {
+    Authorization: `${localStorage.getItem("token")}`,
+  },
+});
 alert("Movie added successfully");
+fetchdata();
     }
     catch(err){
       console.log(err);
@@ -78,15 +85,24 @@ const navigate = useNavigate();
 const logout = ()=>{
   localStorage.removeItem("userid");
   localStorage.removeItem("token");
-  navigate("/signin");
+  navigate("/");
 
 }
  
 
   return (
-    <div style={{ padding: "10px" }}>
-      <h3>BOOKMYSHOW ADMINDASHBOARD</h3>
-      <Button variant="contained" onClick={()=>{logout()}} style={{background:"lightRed"}}>Logout</Button>
+    <div >
+     <Box sx={{ flexGrow: 1 }} >
+      <AppBar position="static"  style={{ background: "#334" }}>
+        <Toolbar >
+        
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            BOOKMYSHOW
+          </Typography>
+         <Logout/>
+        </Toolbar>
+      </AppBar>
+    </Box>
 
       <Formik 
         // initialValues={formData}
@@ -183,16 +199,16 @@ const logout = ()=>{
 
 
             <TextareaAutosize
-      aria-label="Description"
+      aria-label="description"
       name='description'
       value={formik.values.description}
       
       placeholder="MovieDescription"
       style={{width:"700px"}}
-      id="Description"
-      label="Description"
+      id="description"
+      label="description"
       variant="outlined"
-      //  value={values.Description}
+      // value={formik.values.Description}
       onChange={formik.handleChange}
       // onBlur={handleBlur}
     />
@@ -220,9 +236,7 @@ const logout = ()=>{
             <Button variant="contained" type="submit" >
               Save
             </Button>
-            <Button variant="contained" >
-              Reset
-            </Button>
+           
           </Box>
           
         
@@ -230,7 +244,7 @@ const logout = ()=>{
       </Formik>
      
 
-      <h3>User Data</h3>
+      <h3>Admin Data</h3><br/>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -261,9 +275,7 @@ const logout = ()=>{
                   
                   
                   <TableCell>
-                    <Button variant="text" >
-                      Edit
-                    </Button>
+                    
                     <Button onClick={()=>{handledelete(x._id)}} variant="text">
                       Delete
                     </Button>

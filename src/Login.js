@@ -14,6 +14,15 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import { style } from "@mui/system";
 import { config } from "./Config";
+import { Padding } from "@mui/icons-material";
+
+
+
+
+
+
+
+
 function Signin() {
   let navigate = useNavigate()
   let formik = useFormik({
@@ -64,13 +73,14 @@ function Signin() {
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
            BOOKMYSHOW
           </Typography>
-          <Button  color="inherit">Login</Button>
+          <Button component ={Link} to="/register" variant="contained"> Signup</Button>
         </Toolbar>
       </AppBar>
     </Box>
    </div>
+   <div className="signin"  >
 <form onSubmit={formik.handleSubmit}>
- <TextField id="filled-basic" name="role" value={formik.values.role} onChange={formik.handleChange} label="admin/user" variant="filled"
+ <TextField  helperText="Please enter your role user or admin use small letter" id="filled-basic" name="role" value={formik.values.role} onChange={formik.handleChange} label="admin/user" variant="filled"
  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
  
 <TextField id="filled-basic" name="username" value={formik.values.username} onChange={formik.handleChange} label="UserName" variant="filled"
@@ -82,15 +92,30 @@ function Signin() {
  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
 
 
- <Button variant="text"style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}}>FORGET PASSWORD  </Button><br/>
+ {/* <Button variant="text"style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}}>FORGET PASSWORD  </Button><br/> */}
 
  <Button type="submit"  variant="contained"style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}}>LOGIN</Button><br/>
  </form>
  <Typography variant="h6"style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} >
 Don't have an account? Click
- <Button variant="text">Signup</Button> to sign up.</Typography>
+ <Button component ={Link} to="/register"variant="text">Signup</Button> to sign up.</Typography><br/>
+ </div>
 
 
+<div className="userinfo" style={{marginLeft:"300px"}}>
+<h3>Credentials for testing user</h3>
+<b>user/admin :</b>user<br/>
+<b>username :</b>user123<br/>
+<b>password :</b>user123<br/>
+
+</div>
+<div className="admininfo" style={{marginLeft:"900px" ,marginTop:"-110px"}}>
+<h3>Credentials for testing admin</h3>
+<b>user/admin :</b>admin<br/>
+<b>username :</b>admin1234<br/>
+<b>password :</b>admin1234<br/>
+
+</div>
 </div>
 
 );
