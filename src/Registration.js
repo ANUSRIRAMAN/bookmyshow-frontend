@@ -12,6 +12,7 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import { style } from "@mui/system";
 import { config } from "./Config";
+import { BrowserRouter, Routes, Route ,Link} from "react-router-dom";
 function Register() {
   let navigate = useNavigate();
   let formik = useFormik({
@@ -52,9 +53,9 @@ navigate("/")
       <AppBar position="static">
         <Toolbar style={{background:"#334"}}>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} >
-           BOOKMYSHOW
+           BOOKMYSHOW  
           </Typography>
-          
+          <Button component ={Link} to="/"variant="contained">Signin</Button>
         </Toolbar>
       </AppBar>
     </Box>
