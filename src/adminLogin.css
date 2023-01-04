@@ -1,0 +1,13 @@
+.formik{
+    background-image:"https://i.pinimg.com/originals/5d/7e/a9/5d7ea904b38014a26b2652469dda7640.jpg";
+}
+
+    @media screen and (max-width: 667px) {
+        body {
+            overflow-x: hidden !important;
+        }
+        .table {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+        }
+    }

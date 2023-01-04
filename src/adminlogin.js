@@ -26,6 +26,8 @@ import { config } from './Config';
 import { useNavigate } from 'react-router-dom';
 import Logout from './Logout';
 import { AppBar, Toolbar,Typography } from '@mui/material';
+import "./adminLogin.css"
+import { Link } from 'react-router-dom';
 
 function App() {
   
@@ -104,16 +106,17 @@ const logout = ()=>{
       </AppBar>
     </Box>
 
-      <Formik 
+<img src="https://media.giphy.com/media/NnFZysBOEprAA/giphy.gif" alt="Nature" style={{width:"600px", height:"500px" ,marginTop:"30px", marginLeft:"30px",paddingTop:"30px"}}/>
+      <Formik
         // initialValues={formData}
         // validate={validateForm}
         // onSubmit={handleSubmit}
         // enableReinitialize={true}
       >
         
-
+        
           
-          <Box
+          <Box className='formik' style={{paddingBottom:"-1000px", paddingLeft:"700px",marginTop:"-500px"}}
             component="form"
             sx={{
               "& > :not(style)": { m: 1, width: "25ch" },
@@ -244,19 +247,19 @@ const logout = ()=>{
       </Formik>
      
 
-      <h3>Admin Data</h3><br/>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              
-              <TableCell align="Left">Moviename</TableCell>
-              <TableCell align="Left">Link</TableCell>
-              <TableCell align="Left">Genres</TableCell>
-              <TableCell align="Left">Theatername</TableCell>
-              <TableCell align="Left">Description</TableCell>
-              <TableCell align="Left">Time</TableCell>
-              <TableCell>Actions</TableCell>
+      <h3 className='head' style={{marginLeft:"35px"}}>Admin Data</h3><br/>
+      <TableContainer className ="table" component={Paper} >
+        <Table sx={{ minWidth: 850 }} aria-label="simple table" style={{marginLeft:"30px",width:"500px" ,backgroundColor:"#4F4E4D", color:"white"}}>
+          <TableHead style={{color:"white"}}>
+            <TableRow style={{backgroundColor:"#334"}}>
+           
+              <TableCell align="Left"><font color="white">Moviename</font></TableCell>
+              <TableCell align="Left"><font color="white">Link</font></TableCell>
+              <TableCell align="Left"><font color="white">Genres</font></TableCell>
+              <TableCell align="Left"><font color="white">Theatername</font></TableCell>
+              <TableCell align="Left"><font color="white">Description</font></TableCell>
+              <TableCell align="Left"><font color="white">Time</font></TableCell>
+              <TableCell ><font color="white">Actions</font></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -266,12 +269,12 @@ const logout = ()=>{
                  
                    
                  
-                  <TableCell align="Left">{x.movie}</TableCell>
-                  <TableCell align="Left">{x.link}</TableCell>
-                  <TableCell align="Left">{x.genre}</TableCell>
-                  <TableCell align="Left">{x.theatre}</TableCell>
-                  <TableCell align="Left">{x.description}</TableCell>
-                  <TableCell align="Left">{x.time}</TableCell>
+                  <TableCell align="Left"><font color="white">{x.movie}</font></TableCell>
+                  <TableCell align="Left"><font color="white">{<Button href={x.link} >link</Button>}</font></TableCell>
+                  <TableCell align="Left"><font color="white">{x.genre}</font></TableCell>
+                  <TableCell align="Left"><font color="white">{x.theatre}</font></TableCell>
+                  <TableCell align="Left"><font color="white">{x.description}</font></TableCell>
+                  <TableCell align="Left"><font color="white">{x.time}</font></TableCell>
                   
                   
                   <TableCell>
@@ -286,7 +289,15 @@ const logout = ()=>{
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+      <div className='pic' style={{paddingLeft:"900px",width:"50px",height:"80px",marginTop:"-1500px" }}>
+      <img src="https://media.giphy.com/media/RJsxVoYoEYxN57jeXv/giphy.gif"
+       alt="Nature" 
+      /><br/> <img src="https://media.giphy.com/media/RJsxVoYoEYxN57jeXv/giphy.gif"
+      alt="Nature" 
+     /><br/> <img src="https://media.giphy.com/media/RJsxVoYoEYxN57jeXv/giphy.gif"
+     alt="Nature" 
+    />
+   </div> </div>
   );
 }
 
