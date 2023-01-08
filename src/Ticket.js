@@ -12,6 +12,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Logout from './Logout';
+import { Link } from 'react-router-dom';
 const bull = (
   <Box
     component="span"
@@ -31,7 +32,10 @@ export default function Ticket() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             BOOKMYSHOW
           </Typography>
-         <Logout/>
+         
+         <Logout/>&nbsp;
+ <Button component ={Link} to="/mainpage"variant="contained">Home</Button>
+
         </Toolbar>
       </AppBar>
     </Box>
@@ -53,6 +57,7 @@ export default function Ticket() {
         <Typography variant="body2">
           Check your mail for ticket
           <br />
+         
            {/* <img
         component="img"
         height="140"
@@ -61,7 +66,7 @@ export default function Ticket() {
         alt="green iguana"
       /> */}
           <img style={{height:"100px",width:"100px",objectFit:"cover"}} src="https://www.masslive.com/resizer/hN6BgQI_K6ajXdrnFoe8ExYL828=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.masslive.com/home/mass-media/width2048/img/business-news/photo/lockerz-plixi-android-app-f88bf55f2f874ee8.jpg"/>
-        </Typography>
+        </Typography> <Button component ={Link} to="/mainpage"variant="contained">Home</Button>
       </CardContent>
      
     </Card>
