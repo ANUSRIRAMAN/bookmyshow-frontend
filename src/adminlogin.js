@@ -289,14 +289,14 @@ const logout = ()=>{
           </TableBody>
         </Table>
       </TableContainer>
-      <div className='pic' style={{paddingLeft:"900px",width:"50px",height:"80px",marginTop:"-1500px" }}>
-      <img src="https://media.giphy.com/media/RJsxVoYoEYxN57jeXv/giphy.gif"
+      <div className='pic' style={{paddingLeft:"900px",width:"10px",height:"80px",marginTop:"-1500px" }}>
+      {/* <img src="https://media.giphy.com/media/iCio4iYZxp6qKsq4I0/giphy.gif"
        alt="Nature" 
-      /><br/> <img src="https://media.giphy.com/media/RJsxVoYoEYxN57jeXv/giphy.gif"
+      /><br/> <img src="https://media.giphy.com/media/iCio4iYZxp6qKsq4I0/giphy.gif"
       alt="Nature" 
-     /><br/> <img src="https://media.giphy.com/media/RJsxVoYoEYxN57jeXv/giphy.gif"
+     /><br/> <img src="https://media.giphy.com/media/iCio4iYZxp6qKsq4I0/giphy.gif"
      alt="Nature" 
-    />
+    /> */}
    </div> </div>
   );
 }
